@@ -1,0 +1,26 @@
+{
+  "name": "gstack",
+  "version": "0.3.3",
+  "description": "Garry's Stack — Eight opinionated workflow skills that transform Claude Code from a generic assistant into a team of specialists. Includes CEO/founder-mode plan review, engineering manager review, staff engineer PR review, automated ship workflow, headless browser QA, systematic testing, cookie session import, and team retrospectives.",
+  "author": {
+    "name": "Garry Tan",
+    "url": "https://github.com/garrytan"
+  },
+  "homepage": "https://github.com/pankajnits/skill-depot",
+  "repository": "https://github.com/pankajnits/skill-depot",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "engineering",
+    "qa",
+    "browser",
+    "automation",
+    "review",
+    "ship",
+    "retrospective",
+    "playwright",
+    "headless",
+    "testing",
+    "devtools"
+  ]
+}

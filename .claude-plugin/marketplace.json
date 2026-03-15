@@ -1,0 +1,22 @@
+{
+  "name": "skill-depot",
+  "owner": {
+    "name": "pankajnits"
+  },
+  "plugins": [
+    {
+      "name": "principal",
+      "source": "./principal",
+      "description": "Staff-engineer and technical architect toolkit \u2014 17 skills covering HLD, LLD, ADR, RFC, tech debt, scalability, databases (relational/MySQL/NoSQL/time-series/vector), LLM system design, incident response, migration (including Kafka event schema), API design, threat modeling, performance auditing with JVM profiling and distributed tracing, platform engineering (IDP/Backstage/golden paths), cloud design (FinOps/managed vs self-hosted), frontend review (Core Web Vitals/React/Next.js/bundle audit/accessibility), and production debugging (distributed/memory/crash/flaky). Fifteen commands and nine custom scripts: api-diff, dead-code, bus-factor, dep-audit, otel-check, schema-registry-diff, secret-scan (gitleaks integration), migration-safety (zero-downtime SQL DDL analysis), env-drift (env var documentation audit). Languages: TypeScript, Python (FastAPI/SQLAlchemy), Node.js, Java."
+    },
+    {
+      "name": "gstack",
+      "source": "./exec/gstack",
+      "description": "Garry Tan's engineering workflow skills \u2014 plan review, PR review, automated ship, headless browser QA, and team retrospectives. Eight opinionated specialists in one plugin.",
+      "author": {
+        "name": "Garry Tan",
+        "url": "https://github.com/garrytan"
+      }
+    }
+  ]
+}

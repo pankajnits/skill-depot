@@ -1,0 +1,10 @@
+{
+  "name": "principal-plugin-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/skill-validation.test.ts",
+    "test:eval": "node --experimental-strip-types --test test/skill-llm-eval.test.ts"
+  },
+  "devDependencies": {}
+}

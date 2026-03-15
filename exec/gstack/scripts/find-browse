@@ -1,0 +1,17 @@
+#!/bin/bash
+# Shim: delegates to compiled find-browse binary, falls back to basic discovery.
+# The compiled binary adds version checking and META signal support.
+DIR="$(cd "$(dirname "$0")/.." && pwd)/browse/dist"
+if test -x "$DIR/find-browse"; then
+  exec "$DIR/find-browse" "$@"
+fi
+# Fallback: basic discovery (no version check)
+PLUGIN_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+if test -x "$PLUGIN_ROOT/browse/dist/browse"; then
+  echo "$PLUGIN_ROOT/browse/dist/browse"
+elif test -x "$HOME/.claude/plugins/cache/gstack/browse/dist/browse"; then
+  echo "$HOME/.claude/plugins/cache/gstack/browse/dist/browse"
+else
+  echo "ERROR: browse binary not found. Run: cd <plugin-dir> && ./scripts/setup" >&2
+  exit 1
+fi

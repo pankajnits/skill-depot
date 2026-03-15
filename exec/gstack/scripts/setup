@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# gstack plugin setup — build browser binary
+set -e
+
+PLUGIN_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+BROWSE_BIN="$PLUGIN_DIR/browse/dist/browse"
+
+ensure_playwright_browser() {
+  (
+    cd "$PLUGIN_DIR"
+    bun --eval 'import { chromium } from "playwright"; const browser = await chromium.launch(); await browser.close();'
+  ) >/dev/null 2>&1
+}
+
+# 1. Build browse binary if needed (smart rebuild: stale sources, package.json, lock)
+NEEDS_BUILD=0
+if [ ! -x "$BROWSE_BIN" ]; then
+  NEEDS_BUILD=1
+elif [ -n "$(find "$PLUGIN_DIR/browse/src" -type f -newer "$BROWSE_BIN" -print -quit 2>/dev/null)" ]; then
+  NEEDS_BUILD=1
+elif [ -f "$PLUGIN_DIR/package.json" ] && [ "$PLUGIN_DIR/package.json" -nt "$BROWSE_BIN" ]; then
+  NEEDS_BUILD=1
+elif [ -f "$PLUGIN_DIR/bun.lock" ] && [ "$PLUGIN_DIR/bun.lock" -nt "$BROWSE_BIN" ]; then
+  NEEDS_BUILD=1
+fi
+
+if [ "$NEEDS_BUILD" -eq 1 ]; then
+  echo "Building browse binary..."
+  (
+    cd "$PLUGIN_DIR"
+    bun install
+    bun run build
+  )
+  # Safety net: write .version if build script didn't
+  if [ ! -f "$PLUGIN_DIR/browse/dist/.version" ]; then
+    git -C "$PLUGIN_DIR" rev-parse HEAD > "$PLUGIN_DIR/browse/dist/.version" 2>/dev/null || true
+  fi
+fi
+
+if [ ! -x "$BROWSE_BIN" ]; then
+  echo "gstack setup failed: browse binary missing at $BROWSE_BIN" >&2
+  exit 1
+fi
+
+# 2. Ensure Playwright's Chromium is available
+if ! ensure_playwright_browser; then
+  echo "Installing Playwright Chromium..."
+  (
+    cd "$PLUGIN_DIR"
+    bunx playwright install chromium
+  )
+fi
+
+if ! ensure_playwright_browser; then
+  echo "gstack setup failed: Playwright Chromium could not be launched" >&2
+  exit 1
+fi
+
+echo "gstack ready."
+echo "  browse: $BROWSE_BIN"
