@@ -1,5 +1,4 @@
 # Payment Gateway — High Level Design
-
 **Status:** Draft
 **Authors:** pankaj.pandey
 **Last Updated:** 2026-03-16
