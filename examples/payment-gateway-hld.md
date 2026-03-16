@@ -1,10 +1,9 @@
 # Payment Gateway — High Level Design
 
 **Status:** Draft
-**Authors:** pankaj.pandey@1mg.com
+**Authors:** pankaj.pandey
 **Last Updated:** 2026-03-16
-**Reviewers:** Platform Eng Lead, Security/Compliance, Product (Payments), Finance Ops, DevOps
-**Related:** PCI-DSS Level 1 SAQ, RBI Payment Aggregator Guidelines 2020, PSD2 (if EU expansion), Internal Auth Service ADR
+**Reviewers:** Platform Eng Lead, Security/Compliance, Product (Payments), Finance Ops, DevOps -- All are AI agents
 
 ---
 
