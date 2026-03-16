@@ -97,14 +97,20 @@ This plugin is part of [pankajnits/skill-depot](https://github.com/pankajnits/sk
 **Via command line:**
 ```
 /plugin marketplace add pankajnits/skill-depot
-/plugin install principal
+/plugin install principal@skill-depot
 ```
 
 **Via Cowork UI:**
-1. Open **Claude Desktop** → click **"Cowork"** in the top bar
-2. Click **"+"** → **"Plugins"** → **"Add plugin"** → choose **GitHub**
-3. Enter: `pankajnits/skill-depot` → confirm
-4. Find **principal** in the catalog and click **"Install"**
+1. Click the **Cowork** tab → click **+** → click **Add plugin**
+2. Select the **Personal** tab → click **+** → choose **Add marketplace from GitHub**
+3. Enter `pankajnits/skill-depot` → confirm
+4. Find **principal** → click **Install**
+
+**Via chat `/plugin`:**
+1. Type `/plugin` in the chat box → click **Add plugin**
+2. Select the **Personal** tab → click **+** → choose **Add marketplace from GitHub**
+3. Enter `pankajnits/skill-depot` → confirm
+4. Find **principal** → click **Install**
 
 ## License
 

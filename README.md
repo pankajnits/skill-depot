@@ -13,20 +13,23 @@ In any Claude session:
 Then browse and install individual plugins:
 
 ```
-/plugin install principal
-/plugin install gstack
+/plugin install principal@skill-depot
+/plugin install gstack@skill-depot
 ```
 
-Or install via the Cowork UI:
+Or install via the plugin manager UI:
 
-**Step 1 — Add this marketplace:**
-1. Open **Claude Desktop** → click **"Cowork"** in the top bar
-2. Click **"+"** → **"Plugins"** → **"Add plugin"** → choose **GitHub**
-3. Enter: `pankajnits/skill-depot` → confirm
+**Via Cowork UI:**
+1. Click the **Cowork** tab → click **+** → click **Add plugin**
+2. Select the **Personal** tab → click **+** → choose **Add marketplace from GitHub**
+3. Enter `pankajnits/skill-depot` → confirm
+4. Find the plugin you want → click **Install**
 
-**Step 2 — Install a plugin from the catalog:**
-1. In the Plugins panel, browse the catalog
-2. Find the plugin you want and click **"Install"**
+**Via chat `/plugin`:**
+1. Type `/plugin` in the chat box → click **Add plugin**
+2. Select the **Personal** tab → click **+** → choose **Add marketplace from GitHub**
+3. Enter `pankajnits/skill-depot` → confirm
+4. Find the plugin you want → click **Install**
 
 ---
 
@@ -34,7 +37,7 @@ Or install via the Cowork UI:
 
 | Plugin | Skills | Commands | Description |
 |--------|--------|----------|-------------|
-| [principal](./principal/) | 13 skills | 12 commands | Staff-engineer and technical architect toolkit — HLD, LLD, ADR, RFC, tech debt audit, scalability review, database design, LLM system design, incident response, migration planning, API design, threat modeling, performance auditing |
+| [principal](./principal/) | 17 skills | 16 commands | Staff-engineer and technical architect toolkit — HLD, LLD, ADR, RFC, tech debt audit, scalability review, database design, LLM system design, incident response, migration planning, API design, threat modeling, performance auditing, platform engineering, cloud design, frontend review, production debugging |
 | [gstack](./exec/gstack/) | 8 skills | — | Garry Tan's engineering workflow skills — plan review (CEO & eng manager modes), PR review, automated ship, headless browser QA, team retrospectives |
 
 ### productivity *(coming soon)*
@@ -49,8 +52,8 @@ skill-depot/
 │   └── marketplace.json     ← plugin catalog
 ├── principal/               ← staff engineer toolkit
 │   ├── .claude-plugin/plugin.json
-│   ├── skills/              ← 13 skills
-│   ├── commands/            ← 12 quick-trigger commands
+│   ├── skills/              ← 17 skills
+│   ├── commands/            ← 16 quick-trigger commands
 │   ├── scripts/             ← utility scripts (bus-factor, dep-audit)
 │   └── README.md
 ├── exec/
